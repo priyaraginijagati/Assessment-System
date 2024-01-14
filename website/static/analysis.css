@@ -1,0 +1,104 @@
+.details-table {
+    display: none;
+  }
+  
+  .left-table {
+    float: left;
+    width: 50%;
+    margin-right: 2.5%;
+  }
+  
+  .right-table {
+    float: left;
+    width: 50%;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  
+  th,
+  td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+
+  
+  .toggle-button {
+    background-color: #4caf9e;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+  }
+  
+  .toggle-button:hover {
+    background-color: #8345a0;
+  }
+  
+  .container {
+    overflow: hidden;
+    margin: 8% auto;
+    max-width: 1200px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .head {
+    text-align: center;
+    background-color: #f5bbbb;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 7px;
+    font-size: 20px;
+    font-family: system-ui;
+  }
+  
+
+  .easy-cell {
+    background-color: #69de6d33;
+  }
+  
+  .medium-cell {
+    background-color:#acc73533;
+  }
+  
+  .hard-cell {
+    background-color: #f0151533;
+  }
+
+   th.topic-cell {
+    background-color: #ececec;
+    color: #222;
+    font-size: 18px;
+    font-family: system-ui;
+  }
+  
+  th.questions-cell {
+    background-color: #ececec;
+    color: #222;
+    font-size: 18px;
+    font-family: system-ui;
+  } 
+ 
+
+  td {
+    font-weight: bold;
+    background-color: #fff;
+    font-size: 17px;
+    font-family: system-ui;
+  }

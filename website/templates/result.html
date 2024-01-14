@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+{% block title %}Result page{% endblock %}
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='result.css') }}">
+{% endblock %}
+{% block context %}
+  <div class="result-table">
+    <table>
+      <thead>
+        <tr>
+          <th>Subject</th>
+          <th>Easy</th>
+          <th>Medium</th>
+          <th>Hard</th>
+          <th>Date</th>
+          <th>Time</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for result in test_results %}
+          <tr>
+            <td style="text-transform: capitalize;">{{ result.subject }}</td>
+            <td>{{ result.correct_easy_questions }}/{{ result.total_easy_questions }}</td>
+            <td>{{ result.correct_medium_questions }}/{{ result.total_medium_questions }}</td>
+            <td>{{ result.correct_hard_questions }}/{{ result.total_hard_questions }}</td>
+            <td>{{ result.date }}</td>
+            <td>{{ result.time }}</td>
+            <td>
+              <button onclick="toggleDetails('{{ loop.index }}')" id="toggle-button-{{ loop.index }}">Show Details</button>
+            </td>
+          </tr>
+          <tr class="details-table" id="details-table-{{ loop.index }}">
+            <td colspan="7">
+              <div class="details-container">
+                <div class="details-easy">
+                  <table>
+                    <caption class="easy">Easy Topics</caption>
+                    <thead>
+                      <tr>
+                        <th>Topic</th>
+                        <th>Correct Answers</th>
+                        <th class="noq"> Number of Questions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {% for topic in result.easy_topics %}
+                        <tr>
+                          <td>{{ topic.topic }}</td>
+                          <td>{{ topic.correct_answers }}</td>
+                          <td>{{ topic.number_of_questions }}</td>
+                        </tr>
+                      {% endfor %}
+                    </tbody>
+                  </table>
+                </div>
+                <div class="details-medium">
+                  <table>
+                    <caption class="medium">Medium Topics</caption>
+                    <thead>
+                      <tr>
+                        <th>Topic</th>
+                        <th>Correct Answers</th>
+                        <th>Number of Questions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {% for topic in result.medium_topics %}
+                        <tr>
+                          <td>{{ topic.topic }}</td>
+                          <td>{{ topic.correct_answers }}</td>
+                          <td>{{ topic.number_of_questions }}</td>
+                        </tr>
+                      {% endfor %}
+                    </tbody>
+                  </table>
+                </div>
+                <div class="details-hard">
+                  <table>
+                    <caption class="hard">Hard Topics</caption>
+                    <thead>
+                      <tr>
+                        <th>Topic</th>
+                        <th>Correct Answers</th>
+                        <th>Number of Questions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {% for topic in result.hard_topics %}
+                        <tr>
+                          <td>{{ topic.topic }}</td>
+                          <td>{{ topic.correct_answers }}</td>
+                          <td>{{ topic.number_of_questions }}</td>
+                        </tr>
+                      {% endfor %}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    var activeDetails = -1;
+  
+    function toggleDetails(index) {
+      var detailsTable = document.getElementById("details-table-" + index);
+      var toggleButton = document.getElementById("toggle-button-" + index);
+      
+      if (detailsTable.style.display === "none") {
+        detailsTable.style.display = "table-row";
+        toggleButton.textContent = "Hide Details";
+        activeDetails = index;
+      } else {
+        detailsTable.style.display = "none";
+        toggleButton.textContent = "Show Details";
+        activeDetails = -1;
+      }
+    }
+  </script>
+{% endblock %}

@@ -1,0 +1,75 @@
+.login-form {
+    max-width: 600px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  
+  
+  label {
+    margin-bottom: 10px;
+    font-family: sans-serif;
+  }
+  
+  input[type="email"],
+  input[type="text"],
+  input[type="password"]
+   {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+  }
+  
+  
+  button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #4ca2af;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #4597a0;
+  }
+  
+  p {
+    margin-top: 10px;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: large;
+  }
+  
+  .password-toggle {
+    position: relative;
+  }
+  
+  .password-toggle input[type="password"] {
+    padding-right: 10px;
+  }
+  
+  .password-toggle .show-password {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+  }

@@ -1,0 +1,97 @@
+:root {
+    /* --color-background: #f8f8f8; */
+    --color-question-box: #f0eded;
+    --font-size-question: 25px;
+    --font-size-answer: 20px;
+    --spacing-container: 50px;
+    --spacing-question-box: 10px;
+    --padding-question-box: 40px;
+    --color-submit-button: #4cafad; /* Green color for submit button */
+    --color-next-previous-button: rgb(197, 176, 179); /* Blue color for next/previous buttons */
+  }
+  
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-background);
+  }
+  
+  .container {
+    margin-top: var(--spacing-container);
+  }
+  
+  .question-box {
+    margin-bottom: var(--spacing-question-box);
+    background-color: var(--color-question-box);
+    padding: var(--padding-question-box);
+  }
+  
+  .question-box p {
+    margin: 0;
+    font-size: var(--font-size-question);
+  }
+  
+  .answer-textarea {
+    font-size: var(--font-size-answer);
+  }
+  
+  .start-button,
+  .stop-button,.reset-button {
+    font-size: var(--font-size-answer);
+  }
+  
+  
+  .previous-button,
+  .next-button {
+    background-color: var(--color-next-previous-button);
+    padding: 8px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .submit-button {
+    background-color: var(--color-submit-button);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+ 
+  .start-quiz-button {
+    background-color: #4CAF50;
+    color: rgb(197, 176, 179);
+    padding: 10px 20px;
+    font-size: 24px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  
+  .start-quiz-button:hover {
+    background-color: rgb(197, 176, 179); /* Darker green color on hover */
+  }
+  
+  
+  
+  @media screen and (max-width: 768px) {
+    .container {
+      margin-top: calc(var(--spacing-container) / 2);
+    }
+  
+    .question-box p {
+      font-size: calc(var(--font-size-question) - 2px);
+    }
+  
+    .answer-textarea {
+      font-size: calc(var(--font-size-answer) - 2px);
+    }
+  }

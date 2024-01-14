@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block head %}<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='signup.css')}}">{% endblock %}
+{% block title %}Signup page{% endblock %}
+
+{% block context %}
+<form method="post" class="login-form">
+    <h1>Sign up</h1>
+    <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" class="form-control" id="email" name="email" placeholder="Email"/>
+        <label for="firstName">First Name</label>
+        <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name"/>
+        <label for="password1">Password</label>
+        <div class="password-toggle">
+            <input type="password" class="form-control" id="password1" name="password1" placeholder="Password" />
+            <button type="button" class="show-password">Show</button>
+        </div>
+
+        <label for="password2">Confirm Password</label>
+        <div class="password-toggle">
+            <input type="password" class="form-control" id="password2" name="password2" placeholder="Confirm Password" />
+            <button type="button" class="show-password">Show</button>
+        </div>
+        <button type="submit">SignUp</button>
+        <p>Already have an Account? <a href="/login">Login</a></p>
+    </div>
+
+</form>
+<script>
+    const showPasswordButtons = document.querySelectorAll('.show-password');
+    const passwordConditions = document.getElementById('passwordConditions');
+  
+    showPasswordButtons.forEach(function (button) {
+      button.addEventListener('click', function () {
+        const passwordInput = button.previousElementSibling;
+        const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+        passwordInput.setAttribute('type', type);
+        button.textContent = type === 'password' ? 'Show' : 'Hide';
+      });
+    });
+    
+
+</script>
+{% endblock %}

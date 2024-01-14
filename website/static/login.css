@@ -1,0 +1,87 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 85vh;
+  }
+  
+  p {
+    margin-top: 15px;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: large;
+  }
+  .login-form {
+    width: 500px; /* Increase or decrease the value as desired */
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 80px; /* Increase or decrease the value as desired */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+  }
+  
+  
+  
+  input[type="email"],
+  input[type="password"],
+  input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 24px;
+    border-radius: 5px;
+    border: 1px solid #cccccc1b;
+    box-sizing: border-box;
+    font-size: 16px;
+  }
+  
+ 
+  
+  button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #4ca2af;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  
+  .password-container {
+    position: relative;
+  }
+  
+  .password-container input[type="password"] {
+    width: 100%;
+    padding-right: 50px;
+  }
+  
+  .password-container button {
+    position: absolute;
+    top: 35%;
+    right: 5px;
+    transform: translateY(-50%);
+    height: 40%;
+    padding: 5px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1;
+  }
+  
+  .password-container button:focus {
+    outline: none;
+  }
+  
+  .password-container button:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+  }

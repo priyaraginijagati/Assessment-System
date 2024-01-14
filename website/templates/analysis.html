@@ -1,0 +1,131 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='analysis.css')}}">
+<style>
+  .details-table {
+    display: none;
+  }
+</style>
+{% endblock %}
+
+{% block title %}Analysis{% endblock %}
+
+{% block context %}
+<div class="container">
+  <div class="left-table">
+    <table>
+      <thead>
+        <tr>
+          <th colspan="3" class="head">Java</th>
+        </tr>
+        <tr>
+          <th class="topic-cell">Topic</th>
+          <th class="questions-cell">Correct Questions</th>
+          <th class="topic-cell"></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for subject in correct_results %}
+          {% if subject.subject == 'java' %}
+            {% for topic in subject.topics %}
+              <tr>
+                <td>{{ topic.topic }}</td>
+                <td>{{ topic.easy|length + topic.medium|length + topic.hard|length }}</td>
+                <td>
+                  <button class="toggle-button" onclick="toggleDetails(event)">Show Details</button>
+                </td>
+              </tr>
+              <tr class="details-table">
+                <td colspan="3">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th class="easy-cell">Easy</th>
+                        <th class="medium-cell">Medium</th>
+                        <th class="hard-cell">Hard</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>{{ topic.easy|length }}</td>
+                        <td>{{ topic.medium|length }}</td>
+                        <td>{{ topic.hard|length }}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+            {% endfor %}
+          {% endif %}
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <div class="right-table">
+    <table>
+      <thead>
+        <tr>
+          <th colspan="3" class="head">Python</th>
+        </tr>
+        <tr class="s">
+          <th class="topic-cell">Topic</th>
+          <th class="questions-cell">Correct Questions</th>
+          <th class="topic-cell"></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for subject in correct_results %}
+          {% if subject.subject == 'python' %}
+            {% for topic in subject.topics %}
+              <tr>
+                <td>{{ topic.topic }}</td>
+                <td>{{ topic.easy|length + topic.medium|length + topic.hard|length }}</td>
+                <td>
+                  <button class="toggle-button" onclick="toggleDetails(event)">Show Details</button>
+                </td>
+              </tr>
+              <tr class="details-table">
+                <td colspan="3">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th class="easy-cell">Easy</th>
+                        <th class="medium-cell">Medium</th>
+                        <th class="hard-cell">Hard</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>{{ topic.easy|length }}</td>
+                        <td>{{ topic.medium|length }}</td>
+                        <td>{{ topic.hard|length }}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+            {% endfor %}
+          {% endif %}
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<script>
+  function toggleDetails(event) {
+    var detailsTable = event.target.parentNode.parentNode.nextElementSibling;
+    var toggleButton = event.target;
+
+    if (detailsTable.style.display === "none") {
+      detailsTable.style.display = "table-row";
+      toggleButton.textContent = "Hide Details";
+    } else {
+      detailsTable.style.display = "none";
+      toggleButton.textContent = "Show Details";
+    }
+  }
+</script>
+{% endblock %}

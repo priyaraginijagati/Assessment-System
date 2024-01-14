@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}users{% endblock %}
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='users_data.css') }}">
+{% endblock %}
+{% block context %}
+<h2>Users List</h2>
+<a class="button" href="/users_upload">New Users</a>
+<div class="table-container">
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th></th>
+        </tr>
+        {% for user in users %}
+        {% if user.email!='admin@gmail.com' %}
+        <tr>
+            <td class="td1">{{ user.first_name }}</td>
+            <td class="td1">{{ user.email }}</td>
+            <td class="td1">{{ user.role }}</td>
+            <td class="td4"><a  href="/student_analysis?email={{ user.email }}"><img class="box-icon" src="https://img.icons8.com/?size=512&id=45300&format=png" alt="Image"></a></td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}

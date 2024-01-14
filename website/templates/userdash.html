@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='user.css') }}">
+{% endblock %}
+
+{% block title %}User Dashboard{% endblock %}
+
+
+{% block context %}
+{% if user.role == 'student' %}
+
+<div class="container">
+    <div class="subject-box">
+      <img class="box-icon1" src="https://cdn-icons-png.flaticon.com/128/11068/11068861.png" alt="Java Icon">
+       <h1>Java</h1>
+        <a class="button" href="/java">Attempt</a>
+    </div>
+    <div class="subject-box1">
+      <img class="box-icon2" src="https://cdn-icons-png.flaticon.com/128/11068/11068872.png" alt="Java Icon">
+       <h1>Python</h1>
+
+        <a class="button" href="/python">Attempt</a>
+  </div>
+</div>
+
+{% else %} 
+<div class="upload-box">
+  <img class="box-icon3" src="https://cdn-icons-png.flaticon.com/512/1092/1092216.png" alt="Java Icon">
+   <h1>Upload</h1>
+    <a class="button" href="/upload">Upload</a>
+</div>
+<div class="users-box">
+  <img class="box-icon3" src="https://cdn-icons-png.flaticon.com/512/6012/6012823.png" alt="Java Icon">
+   <h1>Users</h1>
+    <a class="button" href="/users">Users</a>
+</div>
+  
+{% endif %}
+{% endblock %}
+<script>
+  
+
+
+  function myFunction() {
+        var x = document.getElementById("myInput");
+        if (x.type === "password") {
+            x.type = "text";
+        } else {
+            x.type = "password";
+        }
+    }
+
+</script>
